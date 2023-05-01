@@ -28,7 +28,7 @@ console.log(art.s);
 
 
 console.log(name);
-var name = 'Ivan';
+var name = 'Artur';
 
 {
         var result = 50;
