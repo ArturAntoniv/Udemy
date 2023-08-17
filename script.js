@@ -1,208 +1,182 @@
-//  //!------------------------------------------------------------//
-//  /* Задание на урок:
-// 1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
-// 'Сколько фильмов вы уже посмотрели?'
-// 2) Создать объект personalMovieDB и в него поместить такие свойства:
-//     - count - сюда передается ответ на первый вопрос
-//     - movies - в это свойство поместить пустой объект
-//     - actors - тоже поместить пустой объект
-//     - genres - сюда поместить пустой массив
-//     - privat - в это свойство поместить boolean(логическое) значение false
-// 3) Задайте пользователю по два раза вопросы:
-//     - 'Один из последних просмотренных фильмов?'
-//     - 'На сколько оцените его?'
-// Ответы стоит поместить в отдельные переменные
-// Записать ответы в объект movies в формате: 
-//     movies: {
-//         'logan': '8.1'
-//     }
-// Проверить, чтобы все работало без ошибок в консоли */
+'use strict';
+const btns = document.querySelectorAll('button'); // беру всі кнопки
 
-// //!   1) завдання   // Створити перемінну і зробити перевірки
+console.log(btns[0].classList.item(0)); // blue  Взнаю клас
+console.log(btns[0].classList.item(1)); // some  Взнаю клас
 
-// let numberOfFilms;
-// function start() {
-//      numberOfFilms = +prompt("Скільки фільмів Ви вже подивились?", "");
-//     while ( numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms) || !isFinite(numberOfFilms)) {
-//         numberOfFilms = +prompt("Скільки фільмів Ви вже подивились?", "");
-//     }
-// }
-// //start();
+console.log(btns[1].classList.add('red')); // Добавляю клас і назву
 
-// //!   2) завдання   // Створити обєкт
-// const personalMovieDB = {
-// 	count: numberOfFilms,
-// 	movies:{},
-// 	actors:{},
-// 	genres:[],
-// 	privat: false,
-// };
+console.log(btns[0].classList.remove('blue')); // Видалив клас і назву blue
 
-// //!   3) завдання   // Задати питання і відповісти
-// // const a = prompt("Який останній фільм Ви дивились?", ""),
-// // 	  b = prompt("Як ви його оцінюєте?", ""),
-// // 	  c = prompt("Який останній фільм Ви дивились?", ""),
-// // 	  d = prompt("Як ви його оцінюєте?", "");
-
-// // personalMovieDB.movies[a] = b; //! помістили в масив відповідь
-// // personalMovieDB.movies[c] = d;
-
-//  //!------------------------------------------------------------//
- 
-// //! 4) Створити ф-ю  запамятовування фільмів. Автоматизувати питання щоб ці питання не повторювались
-// function rememberMyFilms() {
-// for ( let i = 0; i < 2; i++) {
-//     const a = prompt("Який останній фільм Ви дивились?", ""),
-//           b = prompt("Як ви його оцінюєте?", "");
-
-//     //! 5) Потрібно щоб відповідь була заповнена, не можа було ввести пустоту, вийти, і довжина не більше 50 символів. Якщо так відбувається знову має бути питання.
-//     if ( a != null && b != null && a!='' && b !='' && a.length < 50 && b.length <= 2) {
-//         personalMovieDB.movies[a] = b;
-//         console.log('Done');
-//     } else {
-//         console.log('Error');
-//         i--;  //! ПОВЕРТАЮСЬ В ЦИКЛІ НА ОДНУ ІТЕРАЦІЮ НАЗАД ЯКЩО Є ПОМИЛКА
-//     }
-// }
-// console.log(personalMovieDB);
-// }
-// //rememberMyFilms();
+console.log(btns[0].classList.toggle('blue')); // Перемикач класів
 
 
-//  //! 6) Створи ф-ю к-ті переглядаємості фільмів. Провірити скільки фільмів користувач подивився і вивести повідомлення якщо менше чим 10 ( Переглянуто мало фільмів), якщо від 10 до 30 ( Ви хороший глядач), якщо більше 30 ( Ви кіноман)
-
-//  function detectPersonalLevel() {
-//     if (personalMovieDB.count < 10) {
-//         console.log('Переглянуто мало фільмів');
-//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-//         console.log('Ви хороший глядач');
-//     } else if (personalMovieDB.count >= 30) {
-//         console.log('Ви кіноман');
-//     } else {
-//         console.log('Некоректне значення кількості фільмів');
-//     }
-// }
-// //detectPersonalLevel();
-
-//  //! 7) Створи ф-ю showMyDB, яка буде перевіряти властивість privat. Якщо в позиції false має виводити в консоль головний обєкт
-
-//  function showMyDB(hidden) {
-//     if (!hidden) {                      //! Тут знак оклику замінює FALSE і виводить в консоль 
-//         console.log(personalMovieDB);
-//     } else if (hidden)                  //! Тут я показав якщо буде TRUE
-//     console.log('Error');
-// }
-// showMyDB(personalMovieDB.privat);
+if ( btns[1].classList.contains('red')) {
+    console.log('Пишу якийсь код який щось робить');// Перевіряю наявність класу
+}
 
 
-//  //! 8. Створи ф-ю writeYourGenres в якій користувач буде 3 рази відповідати на питання " Ваш улюблений жанр під номером ${ номер по порядку}". Кожна відповідь записуватиметься в масив данних genres
+btns[2].addEventListener('click', () => {
+    if (!btns[3].classList.contains('red')) {   // Перевіряю наявність класу
+        btns[3].classList.add('red');           // добавляю клас
+    } else {
+        btns[3].classList.remove('red');        // видаляю клас
+    }
 
-//  function writeYourGenres() {
-//     for ( let i = 1; i <= 3; i++) {
-//         const answer = prompt(`Ваш улюблений жанр під номером ${ i }`);
+    btns[2].classList.toggle('blue'); // TOGGLE можна замінити код який є вище
+})
 
-//         personalMovieDB.genres.push(answer);
-        
-//         //personalMovieDB.genres[i - 1] = prompt(`Ваш улюблений жанр під номером ${ i }`); //! Можна і так
-         
-//     }
-//  }
-//  writeYourGenres();
+
+//!--------    Делегування     -------------
+// ЗАдача при кліку на БУДЬ ЯКУ кнопку має щось відбуватись 
+const wrapper = document.querySelector('.btn-block');
+
+wrapper.addEventListener('click', (event) => {
+    //console.dir(event.target); // перевіряю властивості
+
+    if (event.target && event.target.tagName == "BUTTON") {
+        console.log('Просто якийсь код');
+    }
+
+    if (event.target && event.target.classList.contains('blue')) {
+        console.log('Пишу якийсь код який щось робить з СИНЬОЮ кнопкою');
+    }
+})
+
+
+//!-----    Зявляється/зникає поле електронки ------
+document.addEventListener('click', function(event) {
+    let id = event.target.dataset.toggleId;
+    if (!id) return;
+
+    let elem = document.getElementById(id);
+
+    elem.hidden = !elem.hidden; //- ---- Зявляється/зникає поле електронки
+  });
+
+
+//!------    ЗАКРИТТЯ ВКЛАДОК -----------
+
+const closeButton = document.querySelector('#container');
+
+closeButton.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('remove-button')) return;
+
+    let pane = event.target.closest('.pane');
+    pane.remove();
+})
+
+
+//!------       Згортання вкладених елементів*------
+
+
+// помістіть кожен текстовий вузол у елемент <span>
+    // він займає саме те місце, яке необхідне для тексту,
+    for (let li of document.querySelectorAll('li')) {
+        let span = document.createElement('span');
+        li.prepend(span);
+        span.append(span.nextSibling); // поміщаємо текстовий вузол у span
+      }
+  
+
+      // ловимо кліки на всьому дереві
+
+      const tree = document.querySelector('.tree');
+
+      tree.addEventListener('click', (event) => {
+        if (event.target.tagName != 'SPAN') {
+            return;
+          }
+    
+          let childrenContainer = event.target.parentNode.querySelector('ul');
+          if (!childrenContainer) return; // дітей немає
+    
+          childrenContainer.hidden = !childrenContainer.hidden;
+      })
 
 
 
- //!---------------  Рефакторинг  ----------------------
+//!------       Сортування в таблиці   ------
 
- const personalMovieDB = {
-	count: 0,
-	movies:{},
-	actors:{},
-	genres:[],
-	privat: false,
+const grid = document.querySelector('#grid');
+grid.addEventListener('click', (event) => {
+    if (event.target.tagName != 'TH') return;
 
-    start: function () {
-        personalMovieDB.count = +prompt("Скільки фільмів Ви вже подивились?", "");
+    let th = event.target;
+    // якщо клітинка TH, тоді сортувати
+    // cellIndex -- це номер клітинки th:
+    // 0 для першого стовпця
+    // 1 для другого і т.д.
+    sortGrid(th.cellIndex, th.dataset.type);
+});
 
-        while ( personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count) || !isFinite(personalMovieDB.count)) {
-        personalMovieDB.count = +prompt("Скільки фільмів Ви вже подивились?", "");
-        }
-   },
-   
+function sortGrid(colNum, type) {
+    let tbody = grid.querySelector('tbody');
 
-    rememberMyFilms: function () {
-        for ( let i = 0; i < 2; i++) {
-           const a = prompt("Який останній фільм Ви дивились?", ""),
-            b = prompt("Як ви його оцінюєте?", "");
-          if ( a != null && b != null && a!='' && b !='' && a.length < 50 && b.length <= 2) {
-            personalMovieDB.movies[a] = b;
-            console.log('Done');
-          } else {
-            console.log('Error');
-            i--;  
-            }
-        }
-    },
+    let rowsArray = Array.from(tbody.rows);
 
+    // compare(a, b) порівнює два рядки, необхідно для сортування
+    let compare;
 
-    detectPersonalLevel: function () {
-        if (personalMovieDB.count < 10) {
-            console.log('Переглянуто мало фільмів');
-        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-            console.log('Ви хороший глядач');
-        } else if (personalMovieDB.count >= 30) {
-            console.log('Ви кіноман');
-        } else {
-            console.log('Некоректне значення кількості фільмів');
-        }
-    },
+    switch (type) {
+      case 'number':
+        compare = function(rowA, rowB) {
+          return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+        };
+        break;
+      case 'string':
+        compare = function(rowA, rowB) {
+          return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+        };
+        break;
+    }
+
+    // сортування
+    rowsArray.sort(compare);
+
+    tbody.append(...rowsArray);
+  }
 
 
-    showMyDB: function (hidden) {
-        if ( !hidden ) {                      
-            console.log(personalMovieDB);
-        }
-    },
 
-    toggleVisibleMyDB: function() {
-        if (personalMovieDB.privat) {                      
-            personalMovieDB.privat = false;
-        } else {                
-            personalMovieDB.privat = true;
-        }
-    },
+  //!  Спливаюса підсказка
 
-    writeYourGenres: function () {
-        // for ( let i = 1; i <= 3; i++) {
-        //     const answer = prompt(`Ваш улюблений жанр під номером ${ i }`);
-        //     if ( answer == null || answer == '' ) {
-        //         console.log('What the fuck?');
-        //         i--;
-        //     } else {
-        //         personalMovieDB.genres.push(answer);
-        //     }          
-        // }
+  let tooltipElem;
 
-        for ( let i = 1; i < 2; i++) {
-            const answer = prompt(`Введіть улюблені жанри через кому ${ i }`).toLocaleLowerCase().trim(); //! Данні через кому
-            if ( answer == null || answer == '' ) {
-                console.log('What the fuck?');
-                i--;
-            } else {
-                personalMovieDB.genres = answer.split(', ');
-                personalMovieDB.genres.sort(); 
-            }          
-        }
+  document.onmouseover = function(event) {
+    let target = event.target;
 
-        personalMovieDB.genres.forEach((item, i) => {
-            console.log(`Улюблений жанр № ${i+1} це ${item}`);
-        });
-    },
-}; 
-    personalMovieDB.start();
-    personalMovieDB.rememberMyFilms();
-    personalMovieDB.detectPersonalLevel();
-    personalMovieDB.showMyDB();
-    personalMovieDB.toggleVisibleMyDB();
-    personalMovieDB.writeYourGenres();
-   
+    // якщо у нас є HTML підказка...
+    let tooltipHtml = target.dataset.tooltip;
+    if (!tooltipHtml) return;
 
+    // ...створіть елемент підказки
+
+    tooltipElem = document.createElement('div');
+    tooltipElem.className = 'tooltip';
+    tooltipElem.innerHTML = tooltipHtml;
+    document.body.append(tooltipElem);
+
+    // розташуйте його над анотованим елементом (угорі по центру)
+    let coords = target.getBoundingClientRect();
+
+    let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+    if (left < 0) left = 0; // не перетинайте лівий край вікна
+
+    let top = coords.top - tooltipElem.offsetHeight - 5;
+    if (top < 0) { // якщо перетинає верхній край вікна, розташуйте знизу
+      top = coords.top + target.offsetHeight + 5;
+    }
+
+    tooltipElem.style.left = left + 'px';
+    tooltipElem.style.top = top + 'px';
+  };
+
+  document.onmouseout = function(e) {
+
+    if (tooltipElem) {
+      tooltipElem.remove();
+      tooltipElem = null;
+    }
+
+  };
