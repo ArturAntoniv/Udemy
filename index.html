@@ -20,7 +20,7 @@
           </nav>
       </div>
       <div class="header__right-block">
-          <button class="btn btn_white">Звязатись з нами</button>
+          <button data-modal class="btn btn_white">Звязатись з нами</button>
       </div>
   </header>
   <div class="sidepanel">
@@ -88,7 +88,7 @@
               </div>
           </div>
           <div class="offer__action">
-              <button class="btn btn_dark">Зв'язатися з нами</button>
+              <button data-modal class="btn btn_dark">Зв'язатися з нами</button>
           </div>
       </div>
       <div class="container">
@@ -187,6 +187,7 @@
 
       <div class="menu__field">
           <div class="container">
+<!-- 
               <div class="menu__item">
                   <img src="img/tabs/vegy.jpg" alt="vegy">
                   <h3 class="menu__item-subtitle">Меню "Фітнес"</h3>
@@ -197,6 +198,8 @@
                       <div class="menu__item-total"><span>229</span> грн/день</div>
                   </div>
               </div>
+--> 
+
               <div class="menu__item">
                   <img src="img/tabs/elite.jpg" alt="elite">
                   <h3 class="menu__item-subtitle">Меню “Преміум”</h3>
@@ -217,6 +220,7 @@
                       <div class="menu__item-total"><span>430</span> грн/день</div>
                   </div>
               </div>
+
           </div>
       </div>
   </div>
@@ -293,7 +297,7 @@
       <div class="modal__dialog">
           <div class="modal__content">
               <form action="#">
-                  <div class="modal__close">&times;</div>
+                  <div data-close class="modal__close">&times;</div>
                   <div class="modal__title">Ми зв'яжемося з вами якомога швидше!</div>
                   <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
                   <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
@@ -303,6 +307,10 @@
       </div>
   </div>
 
-		<script src="script.js"></script>
+		<script src="scriptTubs.js"></script>
+        <script src="script Timer.js"></script>
+        <script src="script Modal.js"></script>
+        <script src="scriptMenuForDay.js"></script>
+        <script src="script SendDataToServer.js"></script>
 	</body>
 </html> 
